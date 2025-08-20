@@ -6,6 +6,9 @@ const fs = require("fs");
 const cors = require("cors");
 const path = require("path");
 
+console.log("Iniciando servidor...");
+
+
 const app = express();
 app.use(cors());
 
