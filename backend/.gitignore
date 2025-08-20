@@ -1,0 +1,63 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Base de datos (contiene datos locales)
+*.db
+*.sqlite
+*.sqlite3
+db.sqlite
+
+# Archivos temporales subidos
+uploads/
+temp/
+*.tmp
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Archivos del sistema operativo
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Variables de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Archivos de backup
+*.bak
+*.backup
+
+# Archivos CSV de prueba (opcional)
+# *.csv
+
+# Build outputs (si usas build tools)
+dist/
+build/
