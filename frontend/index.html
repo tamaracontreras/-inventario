@@ -293,7 +293,8 @@
         table.style.display = "none";
 
         try {
-          const response = await fetch("/productos");
+          const API_URL = "https://inventario-production-76d.up.railway.app/"; // la URL de tu API
+          const response = await fetch(`${API_URL}/productos`);
 
           if (!response.ok) {
             throw new Error(`Error ${response.status}: ${response.statusText}`);
