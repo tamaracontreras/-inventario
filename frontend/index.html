@@ -293,7 +293,7 @@
         table.style.display = "none";
 
         try {
-          const response = await fetch("http://localhost:3000/productos");
+          const response = await fetch("/productos");
 
           if (!response.ok) {
             throw new Error(`Error ${response.status}: ${response.statusText}`);

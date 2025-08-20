@@ -4,9 +4,13 @@ const sqlite3 = require("sqlite3").verbose();
 const csv = require("csv-parser");
 const fs = require("fs");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 app.use(cors());
+
+// Servir archivos estáticos del frontend
+app.use(express.static('frontend'));
 
 // Configuración de multer para guardar archivos en /uploads
 const upload = multer({ dest: "uploads/" });
@@ -18,12 +22,16 @@ const db = new sqlite3.Database("db.sqlite");
 db.run(`
 CREATE TABLE IF NOT EXISTS productos (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    
     nombre TEXT,
     precio REAL,
     stock INTEGER
 )
 `);
+
+// Ruta principal - sirve el frontend
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
+});
 
 // Endpoint para subir CSV
 app.post("/upload", upload.single("archivo"), (req, res) => {
@@ -52,6 +60,7 @@ app.get("/productos", (req, res) => {
     });
 });
 
+// Puerto dinámico para Railway
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`API corriendo en puerto ${PORT}`);
